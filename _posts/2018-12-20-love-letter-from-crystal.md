@@ -5,9 +5,9 @@ title:  "A Love Letter, from Crystal to a Ruby developer"
 
 # A Love Letter, from Crystal to a Ruby developer
 
-### Firstly: " and ' have distinct meanings in Crystal.
+## Firstly: " and ' have distinct meanings.
 
-```
+```ruby
 ·› crystal run test.cr
 Syntax error in test.cr:29: unterminated char literal, use double quotes for strings
 
@@ -15,9 +15,9 @@ p combos('input0.txt', 25)
          ^
 ```
 
-### No `readlines`
+## No `readlines`.
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:2: undefined method 'readlines' for File.class
 
@@ -25,11 +25,11 @@ Error in test.cr:2: undefined method 'readlines' for File.class
        ^~~~~~~~~
 ```
 
-### Enumerable stuff.
+## Enumerable stuff.
 
-#### For empty arrays, use '[] of <ElementType>'
+### For empty arrays, use '[] of <ElementType>'
 
-```
+```ruby
 ·› crystal run test.cr
 Syntax error in test.cr:8: for empty arrays use '[] of ElementType'
 
@@ -43,9 +43,9 @@ Error in test.cr:8: can't use Array(T) as generic type argument yet, use a more 
                                           ^~~~~
 ```
 
-#### oops, my bad
+### oops, my bad
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:8: undefined constant Integer
 
@@ -53,9 +53,9 @@ Error in test.cr:8: undefined constant Integer
                                                  ^~~~~~~
 ```
 
-#### Just use `size`
+### Just use `size`
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:7: undefined method 'length' for Array(Int32)
 
@@ -63,9 +63,9 @@ Error in test.cr:7: undefined method 'length' for Array(Int32)
                                                      ^~~~~~
 ```
 
-#### Different return value from `each`.  Also, `count` is different (just use `size`)
+### Different return value from `each`.  Also, `count` is different (just use `size`!)
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:102: undefined method 'count' for Nil
 
@@ -85,9 +85,9 @@ result.each { |thing| p thing }.size
                                 ^~~~
 ```
 
-### More enumerable stuff: `reduce`
+## More enumerable stuff: `reduce`
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:12: wrong number of arguments for 'Array(Int32)#reduce' (given 2, expected 0..1)
 Overloads are:
@@ -104,9 +104,9 @@ Error in test.cr:12: 'Array(Int32)#reduce' is expected to be invoked with a bloc
                                                   ^~~~~~
 ```
 
-####### Fumbling toward the equivalent of Array#combination
+### Fumbling toward the equivalent of Array#combination
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:140: undefined method 'combination' for Range(Int32, Int32)
 
@@ -128,11 +128,11 @@ Error in test.cr:140: undefined method 'combination' for Array(Int32) (did you m
             ^~~~~~~~~~~
 ```
 
-### Procs
+## Procs
 
-#### Where you'd pass `&` and the name of a function as a symbol for Ruby to turn into a Proc, use syntax as though you're invoking the method on `&` instead.  `map(&:foo)` becomes `map(&.foo)`.
+### Where you'd pass `&` and the name of a function as a symbol for Ruby to turn into a Proc, use syntax as though you're invoking the method on `&` instead.  `map(&:foo)` becomes `map(&.foo)`.
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:2: expected a function type, not Symbol
 
@@ -142,9 +142,11 @@ Error in test.cr:2: expected a function type, not Symbol
 
 
 
-#### Complicated Types: Defining classes and passing instances of them is much easier to think about than passing arrays of arrays of arrays.  Let type-matching strictness guide you toward defining your data structures.
+## Complicated Types
 
-```
+### Defining classes and passing instances of them is much easier to think about than passing arrays of arrays of arrays.  Let type-matching strictness guide you toward defining your data structures.
+
+```ruby
 ·› crystal run test.cr
 Error in test.cr:16: no overload matches 'Array(Array(Int32))#<<' with type Array(Tuple(Int32, Int32))
 Overloads are:
@@ -168,9 +170,9 @@ def search(containers, solutions, volume) : Array(Array(Tuple(Int32, Int32)))
     ^~~~~~~~~~~~~~~~
 ```
 
-###### Type inference: a soliloquy
+## Type inference: a soliloquy
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:18: Can't infer the type of instance variable '@containers' of ContainerSet
 
@@ -203,9 +205,9 @@ Can't infer the type of instance variable '@containers' of ContainerSet
 ```
 
 
-#### Finally, `raise` an error or a message.
+## Finally, `raise` an error or a message.
 
-```
+```ruby
 ·› crystal run test.cr
 Error in test.cr:89: wrong number of arguments for 'raise' (given 0, expected 1)
 Overloads are:
