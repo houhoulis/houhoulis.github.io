@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "A Love Letter, from Crystal to a Ruby developer"
 ---
 
@@ -15,32 +14,31 @@ p combos('input0.txt', 25)
          ^
 ```
 
-## No `readlines`.
+## No '`readlines`'.
 
 ```ruby
 ·› crystal run test.cr
 Error in test.cr:2: undefined method 'readlines' for File.class
 
-  File.readlines(filename).grep(/\d/).map(&:to_i)
+  File.readlines(filename).grep(/\d/)
        ^~~~~~~~~
 ```
 
 ## Enumerable stuff.
 
-### For empty arrays, use '[] of <ElementType>'
+### For empty arrays, use '[] of &lt;ElementType&gt;'
 
 ```ruby
 ·› crystal run test.cr
 Syntax error in test.cr:8: for empty arrays use '[] of ElementType'
 
-  search(collection, [], volume).uniq
-                                     ^
+  search(collection, [], volume)
+
 
 ·› crystal run test.cr
 Error in test.cr:8: can't use Array(T) as generic type argument yet, use a more specific type
 
-  search(collection, [] of Array, volume).uniq
-                                          ^~~~~
+  search(collection, [] of Array, volume)
 ```
 
 ### oops, my bad
@@ -49,7 +47,7 @@ Error in test.cr:8: can't use Array(T) as generic type argument yet, use a more 
 ·› crystal run test.cr
 Error in test.cr:8: undefined constant Integer
 
-  search(collection, [] of Array(Integer, Integer), volume).uniq
+  search(collection, [] of Array(Integer, Integer), volume)
                                                  ^~~~~~~
 ```
 
@@ -85,7 +83,9 @@ result.each { |thing| p thing }.size
                                 ^~~~
 ```
 
-## More enumerable stuff: `reduce`
+## More enumerable stuff
+
+### `reduce`
 
 ```ruby
 ·› crystal run test.cr
