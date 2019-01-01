@@ -4,7 +4,7 @@ title:  "A Love Letter, from Crystal to a Ruby developer"
 
 # A Love Letter, from Crystal to a Ruby developer
 
-## Firstly: " and ' have distinct meanings.
+## First of all, " and ' have distinct meanings.
 
 ```ruby
 ·› crystal run test.cr
@@ -41,7 +41,7 @@ Error in test.cr:8: can't use Array(T) as generic type argument yet, use a more 
   search(collection, [] of Array, volume)
 ```
 
-### oops, my bad
+### (oops, my bad)
 
 ```ruby
 ·› crystal run test.cr
@@ -157,14 +157,18 @@ Overloads are:
 
 
 ·› crystal run test.cr
-Error in test.cr:24: can't infer block return type, try to cast the block body with `as`. See: https://github.com/crystal-lang/crystal/wiki/Compiler-error-messages#cant-infer-block-return-type
+Error in test.cr:24: can't infer block return type, try to cast the block body with `as`. See:
+  https://github.com/crystal-lang/crystal/wiki/Compiler-error-messages#cant-infer-block-return-type
 
     solutions + possibilities.map { |poss| search(poss, solutions, volume) }
                               ^~~
 
 
 ·› crystal run test.cr
-Error in test.cr:11: type must be Array(Array(Tuple(Int32, Int32))), not (Array(Array(Tuple(Int32, Int32))) | Iterator::Map(Iterator::Map(Indexable::IndexIterator(Array(Tuple(Int32, Int32))), Array(Tuple(Int32, Int32))), Array(Tuple(Int32, Int32)), Array(Tuple(Int32, Int32))))
+Error in test.cr:11:
+  type must be Array(Array(Tuple(Int32, Int32))), not
+    (Array(Array(Tuple(Int32, Int32))) | Iterator::Map(Iterator::Map(Indexable::IndexIterator(
+      Array(Tuple(Int32, Int32))), Array(Tuple(Int32, Int32))), Array(Tuple(Int32, Int32)), Array(Tuple(Int32, Int32))))
 
 def search(containers, solutions, volume) : Array(Array(Tuple(Int32, Int32)))
     ^~~~~~~~~~~~~~~~

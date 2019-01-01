@@ -1,0 +1,17 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* For "Cayman" GitHub Jekyll theme. */
+
+.page-header {
+  padding: 5rem 6rem 0rem;
+}
+
+.main-content {
+  width: 60%;
+  padding: 2rem 1rem;
+  min-width: 24rem;
+  max-width: 100%;
+}
